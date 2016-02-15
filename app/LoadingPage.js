@@ -4,7 +4,8 @@ import React, {
     Text,
     TouchableOpacity,
     StyleSheet,
-    ToastAndroid
+    ToastAndroid,
+    Dimensions
 } from 'react-native';
 import LoginPage from './LoginPage';
 
@@ -18,9 +19,9 @@ class LoadingPage extends React.Component {
     }
 
     render() {
+        var {width, height} = Dimensions.get('window');
         return (
-            <Image source={{uri: 'http://i.imgur.com/XMKOH81.jpg'}} style={styles.container}>
-
+            <Image source={require('./image/loading_android.png')} style={[styles.container, {width: width, height: height}]}>
             </Image>
         )
     }
@@ -40,8 +41,6 @@ var styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
 });
 
