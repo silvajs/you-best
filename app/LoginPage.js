@@ -7,8 +7,9 @@ import React, {
     ToastAndroid,
     TextInput,
     TouchableHighlight,
+    InteractionManager,
 } from 'react-native';
-import HomePage from './HomePage';
+import TabPage from './TabPage';
 
 var actions = [{
     title: 'Close',
@@ -56,8 +57,8 @@ class LoginPage extends React.Component {
         let {navigator} = this.props;
         if (navigator) {
             navigator.push({
-                name: 'HomePage',
-                component: HomePage
+                name: 'TabPage',
+                component: TabPage
             });
         }
     }

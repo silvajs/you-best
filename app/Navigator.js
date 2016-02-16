@@ -4,6 +4,7 @@ import React, {
     Alert
 } from 'react-native';
 import LoadingPage from './LoadingPage';
+import TabPage from './TabPage'
 
 class NavigatorComponent extends React.Component {
 
