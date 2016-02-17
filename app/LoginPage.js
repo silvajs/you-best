@@ -89,7 +89,8 @@ var styles = StyleSheet.create({
     },
     form: {
         marginHorizontal: 30,
-        marginTop: 20
+        marginTop: 20,
+        flex: 1,
     },
     input: {
         borderBottomWidth: 4,
@@ -115,12 +116,9 @@ var styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     footer: {
-        position: 'absolute',
-        bottom: 35,
-        left: 0,
-        right: 0,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginBottom: 30
     },
     signup: {
         color: '#ff5645',
