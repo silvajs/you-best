@@ -12,9 +12,17 @@ import LoginPage from './LoginPage';
 class LoadingPage extends React.Component {
     constructor(props) {
         super(props);
-        setTimeout(function() {
+
+    }
+
+    componentDidMount() {
+        this.timer = setTimeout(function() {
             this.goLogin();
         }.bind(this), 1000)
+    }
+
+    componentWillMount() {
+        this.timer && clearTimeout(this.timer);
     }
 
     render() {
