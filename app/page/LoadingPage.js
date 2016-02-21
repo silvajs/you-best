@@ -13,7 +13,6 @@ class LoadingPage extends React.Component {
     constructor(props) {
         super(props);
         setTimeout(function() {
-            // ToastAndroid.show('This is a toast with short duration', ToastAndroid.SHORT);
             this.goLogin();
         }.bind(this), 1000)
     }
@@ -21,7 +20,7 @@ class LoadingPage extends React.Component {
     render() {
         var {width, height} = Dimensions.get('window');
         return (
-            <Image source={require('./image/loading_android.png')} style={[styles.container, {width: width, height: height}]}>
+            <Image source={require('../image/loading_android.png')} style={[styles.container, {width: width, height: height}]}>
             </Image>
         )
     }
@@ -29,7 +28,7 @@ class LoadingPage extends React.Component {
     goLogin() {
         let {navigator} = this.props;
         if (navigator) {
-            navigator.push({
+            navigator.replace({
                 name: 'LoginPage',
                 component: LoginPage
             });

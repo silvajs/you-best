@@ -13,7 +13,7 @@ import TabPage from './TabPage';
 
 var actions = [{
     title: 'Close',
-    icon: require('./image/btn_close.png'),
+    icon: require('../image/btn_close.png'),
     show: 'always',
     showWithText: true
 }];

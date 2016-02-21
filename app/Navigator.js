@@ -3,8 +3,9 @@ import React, {
     BackAndroid,
     Alert
 } from 'react-native';
-import LoadingPage from './LoadingPage';
-import TabPage from './TabPage'
+import LoadingPage from './page/LoadingPage';
+import TabPage from './page/TabPage';
+import IntroducePage from './page/secondOpinion/IntroducePage';
 
 class NavigatorComponent extends React.Component {
 
@@ -30,10 +31,11 @@ class NavigatorComponent extends React.Component {
     render() {
         return (
             <Navigator ref='nav'
-                initialRoute = {{name: 'loadingPage', component: TabPage, index: 0}}
+                initialRoute = {{name: 'loadingPage', component: LoadingPage, index: 0}}
                 configureScene = {(route, routeStack) => {
-                    console.log(Navigator.SceneConfigs);
-                    return Navigator.SceneConfigs.FloatFromRight;
+                    console.log(route);
+                    let animate = route.animate;
+                    return animate || Navigator.SceneConfigs.FloatFromRight;
                 }}
                 renderScene = {(route, navigator) => {
                     let Component = route.component;
