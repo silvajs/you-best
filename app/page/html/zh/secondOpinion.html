@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        html, body { margin: 0; font-family: arial; }
+        body { font-size: 14px; color: #333; }
+        h1 { font-size: 0.56rem; }
+        p{line-height: 1.8em;}
+        .banner { overflow: hidden; min-height: 3.1rem; background-color: #f5f5f5; }
+        .banner > img { width: 100%; }
+        .container { padding: 0 0.3rem; }
+        .clearfix { }
+        .clearfix::after { content: ''; display: table; clear: both; }
+        .text-center { text-align: center; }
+        .red { color: #ff5645; }
+        .big { font-size: 1.5em; font-weight: bold; }
+        .bigger { font-size: 2em; font-weight: bold; }
+        .bold { font-weight: bold; }
+        .line-height {line-height: 1.8em;}
+        .risk-p { margin-top: .6rem; }
+        .risk-icon { height: 50px; background: url(../image/risk.png) no-repeat center center; background-size: contain; margin-bottom: .6rem; }
+        .ques { background: #f04534 url(../image/puzzle.png) no-repeat center center;background-size: cover; color: #fff; padding: .3rem 0; }
+        .ques-ul { list-style: none; padding-left: 0; margin: 0; }
+        .ques-ul > li { float: left; width: 33.33333%; height: 90px; text-align: center; overflow: hidden; margin-bottom: 0.4rem; }
+        .ques-ul > li .round { background: #fff; border: 2px solid #f5867b; border-radius: 50%; color: #f04534; line-height: 2em; padding-top: 20px; height: 100%; width: 90px; box-sizing: border-box; display: inline-block; }
+        .ques-ul > li.doctor { background: url(../image/doctor.png) no-repeat center center; background-size: 80px; }
+        .partner { overflow: hidden; }
+        .partner-box { background-color: #f7f7f7; overflow: hidden; padding: .2rem 0; }
+        .partner-p { min-height: 4.4rem; margin: .6rem 0; }
+        .partner-p > img { width: 100%; }
+        .srv-box { background: url(../image/banner.png) no-repeat center center; background-size: cover; overflow: hidden; position: relative; }
+        .srv-bg { position: absolute; top: .5rem; right: .3rem; bottom: 0; left: .3rem; background: #fff; opacity: 0.85; }
+        .srv-w { padding: .7rem .3rem .4rem .3rem; z-index: 1; position: relative; font-size: 15px; }
+        .srv-w-c { padding: 0 .3rem; }
+        .srv-ul { list-style: none; padding: 0; margin: 0; }
+        .srv-ul > li { float: left; width: 50%; }
+        .srv-year { border-right: 1px dashed #ff5645; font-size: .26rem; text-align: center; margin-top: .4rem; }
+        .srv-year .srv-title { font-size: .3rem; margin: 0 0 .2rem 0; }
+        .srv-year .srv-vp { margin-top: 3px; }
+        .srv-year .srv-op { color: #999999; text-decoration: line-through; margin: 0.2rem 0; }
+        .srv-year .srv-desc { list-style: none; margin: 0; color: #cccccc; font-size: 12px; line-height: 1.3em; padding-left: .5rem; }
+        .srv-year .srv-desc > li { margin-bottom: .6em; padding-left: 10px; text-align: left; padding-right: .24rem; position: relative; }
+        .srv-year .srv-desc > li::before { content: "▪"; position: absolute; left: 0; top: 0; font-size: .28rem; }
+        .noborder { border: none; }
+        .srv { background-color: #f7f7f7; padding-bottom: .4rem; }
+        .srv-c { background-color: #fff; overflow: hidden; }
+        .srv-c > p { padding: 0 .2rem; }
+        .srv-ul-t { list-style: none; padding: 0; margin-bottom: .4rem; }
+        .srv-ul-t > li { float: left; width: 33.33333%; }
+        .srv-ul-t .srv-year .srv-desc { padding-left: .12rem; }
+        .srv-ul-t .srv-year .srv-desc > li { padding-right: .1rem; }
+        .you { margin: .2rem 0 .3rem 0; }
+        .you dl {display: table; border: none;margin: .4rem 0;}
+        .you dl dt {width: 50px;display: table-cell;text-align: left;vertical-align: middle;}
+        .you dl dt > img {width: 100%;}
+        .you dl dd {display: table-cell;line-height: 1.8em;vertical-align: middle;padding-left: 10px;}
+        .watermark {display:inline-block; color: #ff5644;height: 26px;line-height: 30px;width: 55px;padding-left: 5px; background: url(../image/watermark.png) no-repeat center center;background-size: cover;font-weight: bold;font-size: 15px;transform:rotate(20deg);-ms-transform:rotate(20deg);-webkit-transform:rotate(20deg);-moz-transform:rotate(20deg);-o-transform:rotate(20deg);}
+    </style>
+    <script>
+        function setFontSize() {
+            var deviceWidth = document.documentElement.clientWidth;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        }
+
+        window.onorientationchange = setFontSize;
+        setFontSize();
+    </script>
+</head>
+<body>
+
+    <div class="banner">
+        <img src="../image/banner-zh.png" />
+    </div>
+    <div class="text-center">
+        <p class="risk-p">日益挑战的生活环境让我们健康面临<span class="red big">巨大风险</span></p>
+        <p class="bold">中国慢病以及重大疾病的发病率</p>
+        <p><span class="bigger">不断</span><span class="red bigger">上升</span></p>
+        <div class="risk-icon"></div>
+        <div class="ques">
+            <p>对患者来言，精准的诊断是健康治疗和康复的<span class="big">关键</span></p>
+            <p>而很多时候面对首次诊断治疗的结果，我们经常会有</p>
+            <p>很多<span class="big">担心</span><span class="big">困惑</span></p>
+            <ul class="ques-ul clearfix">
+                <li><div class="round">询问手术的<br />必要性?</div></li>
+                <li class="doctor"></li>
+                <li><div class="round">无法理解<br />诊断结果?</div></li>
+                <li><div class="round">对医生建议<br />心存疑虑?</div></li>
+                <li><div class="round">对不同治疗<br />需要帮助?</div></li>
+                <li><div class="round">疾病症状<br />没改善?</div></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container partner">
+        <div class="partner-box">
+            <p><span class="bigger">优可信</span>专门对接国内外医疗专家，为国内患者提供健康管理服务的专业平台</p>
+            <p>我们<span class="red">国内外的医生网络</span>可以为国内患者提供<span class="red big">第二诊疗意见</span>服务</p>
+        </div>
+        <div class="partner-p">
+            <img src="../image/coopr-zh.jpg" />
+        </div>
+    </div>
+    <div class="srv-box">
+        <div class="srv-bg"></div>
+        <div class="srv-w">
+            <div class="srv-w-c">
+                <p class="line-height">2014年10月12日CCTV-13频道《新闻直播间》的海外医疗专题报道曾指出出国就医，专家会诊费用远超30万！</p>
+                <p class="line-height">今天，优可信为您及您的家人提供海外第二诊疗意见服务尤为贴心：</p>
+            </div>
+            <ul class="srv-ul clearfix">
+                <li>
+                    <div class="srv-year">
+                        <h3 class="srv-title">一年期服务</h3>
+                        <div class="red">会员价</div>
+                        <div class="srv-vp red"><span class="big">&yen;</span><span class="bigger">1200</span> / 年</div>
+                        <div class="srv-op">原价 &yen;1500 / 年</div>
+                        <ul class="srv-desc">
+                            <li>全年无限次服务使用</li>
+                            <li>医学专家解答所有医学问题和健康关切</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="srv-year noborder">
+                        <h3 class="srv-title">半年期服务</h3>
+                        <div class="red">会员价</div>
+                        <div class="srv-vp red"><span class="big">&yen;</span><span class="bigger">636</span> / 年</div>
+                        <div class="srv-op">原价 &yen;795 / 年</div>
+                        <ul class="srv-desc">
+                            <li>半年无限次服务使用</li>
+                            <li>医学专家解答所有医学问题和健康关切</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container srv">
+        <div class="srv-c">
+            <ul class="srv-ul-t clearfix">
+                <li>
+                    <div class="srv-year">
+                        <h3 class="srv-title">一季度服务</h3>
+                        <div class="red">会员价</div>
+                        <div class="srv-vp red"><span class="big">&yen;</span><span class="bigger">336</span> / 季度</div>
+                        <div class="srv-op">原价 &yen;420 / 季度</div>
+                        <ul class="srv-desc">
+                            <li>3个月无限次服务使用</li>
+                            <li>医学专家解答所有医学问题和健康关切</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="srv-year">
+                        <h3 class="srv-title">一个月服务</h3>
+                        <div class="red">会员价</div>
+                        <div class="srv-vp red"><span class="big">&yen;</span><span class="bigger">112</span> / 月</div>
+                        <div class="srv-op">原价 &yen;140 / 月</div>
+                        <ul class="srv-desc">
+                            <li>1个月无限次服务使用</li>
+                            <li>医学专家解答所有医学问题和健康关切</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="srv-year noborder">
+                        <h3 class="srv-title">一次服务</h3>
+                        <div class="red">会员价</div>
+                        <div class="srv-vp red"><span class="big">&yen;</span><span class="bigger">550</span> / 次</div>
+                        <div class="srv-op">原价 &yen;700 / 次</div>
+                        <ul class="srv-desc">
+                            <li>1次服务使用</li>
+                            <li>医学专家解答所有医学问题和健康关切</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <p>已购买过第二诊疗意见服务用户，在服务有效期内，给您的直系亲属购买相关服务可立享服务价<span class="red big">半价</span>优惠！</p>
+            <p class="red">（成为优可信会员更可享受优可信多款服务超值会员价，如需要开通，可在下单时一并办理开通会员服务。会员服务&yen;250/年）</p>
+        </div>
+    </div>
+    <div class="container">
+        <p>购买优可信第二诊疗意见服务，您可以:</p>
+        <div class="you">
+            <dl>
+                <dt><img src="../image/people.png" /></dt>
+                <dd>动动手指，即可享受到全球超过<span class="red big">50,000</span>名顶级医生专业服务<span class="watermark">真的 ！</span></dd>
+            </dl>
+            <dl>
+                <dt><img src="../image/home.png" /></dt>
+                <dd>无需离家便能与著名医生取得联系，让我们精心挑选的医学专家解答所有医学问题和健康关切</dd>
+            </dl>
+            <dl>
+                <dt><img src="../image/aircraft.png" /></dt>
+                <dd>优先使用海外治疗的绿色通道服务</dd>
+            </dl>
+        </div>
+    </div>
+
+</body>
+</html>

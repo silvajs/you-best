@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <title></title>
+        <style>
+            html, body { margin: 0; font-family: arial; }
+            body { font-size: 14px; color: #333; }
+            .banner { overflow: hidden; min-height: 3.1rem; }
+            .banner > img { width: 100%; }
+            .container { padding: 0 0.3rem; }
+            .center {text-align: center;}
+            .bigger { font-size: .48rem; }
+            p {line-height: 1.8em;}
+            .heart {background: #e9f1f7 url(../image/background/heart.png) no-repeat center center;background-size: 55%;height: 1.8rem;width: 1.8rem;margin: .5rem auto .5rem auto;border-radius: 50%;}
+            .title {color: #5990c5;}
+            .desc {font-size: .3rem;}
+            .bg {background: #5da6f4 url(../image/background/qiu.png) no-repeat right bottom; background-size: 100%; color: #fff;padding-bottom: .2rem;margin: .48rem 0 2.1rem 0;overflow: hidden;}
+            .bg-title {margin: .48rem 0 .4rem 0;}
+            .doctor {border: 1px dashed #ccc;border-radius: 10px;padding: 2rem .2rem .4rem .2rem;position: relative;margin-bottom: .4rem;}
+            .doctor:before {content: '';position: absolute;width: 2.8rem;height: 2.8rem;border: 1px solid #ccc;border-radius: 50%;background: #fff;top: -1.4rem;left: 50%;margin-left: -1.4rem;}
+            .doctor:after {content: '';position: absolute;width: 2.6rem;height: 2.6rem;border: 1px solid transparent;border-radius: 50%;background: #fff;top: -1.3rem;left: 50%;margin-left: -1.3rem;background: url(../image/background/people.png) no-repeat center center;background-size: cover;overflow: hidden;}
+            
+        </style>
+        <script type="text/javascript">
+            function setFontSize() {
+                var deviceWidth = document.documentElement.clientWidth;
+                document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+            }
+
+            window.onorientationchange = setFontSize;
+            setFontSize();
+
+        </script>
+    </head>
+    <body>
+        <div class="banner">
+            <img src="../image/background/banner-en.png" />
+        </div>
+        <div class="container">
+            <div class="heart"></div>
+            <p class="bigger title center">BE READY. BE RIGHT</p>
+            <p class="desc">As a Best Doctors member, you have the expertise of more than 53,000 of the world’s best doctors at your fingertips - literally!</p>
+            <p class="desc">Simply by contacting Best Doctors, you can have any and all of your medical questions and concerns addressed by carefully selected expert physicians, and you don’t even need to leave your house. All of our services are 100% confidential and always completely free to you!</p>
+        </div>
+        <div class="container bg">
+            <p class="bigger bg-title center">MEDICAL EXCELLENCE</p>
+            <p class="talents">Our Best Doctors physicians are Reviewed and elected by their peers;</p>
+            <p class="talents">Clinically and academically accomplished;</p>
+            <p class="talents">Affiliated with national and global centers of excellence, including Dana Farber, Baylor, Memorial Sloan-Kettering, Johns Hopkins and other leaders;</p>
+            <p class="talents">Leading medical practitioners, researchers and teachers; Members of a prestigious, peer-reviewed group that includes the top 5% of U.S. physicians.</p>
+        </div>
+        <div class="container">
+            <div class="doctor">
+                <p>For over 20 years, we have conducted an extensive physician survey to identify the doctors that other doctors trust most. It is the largest ongoing, peer-reviewed survey in the medical industry.</p>
+                <p>As a result, we have a proprietary database of more than 53,000 medical experts in over 450 specialties and subspecialties worldwide. </p>
+                <p>To date, our experts have reviewed tens of thousands of cases, providing invaluable diagnostic and treatment recommendations. We do not pay physicians to be included in our database and they do not pay us.</p>
+                <p>Through Best Doctors, medical experts and treating physicians are working together in an innovative new way to ensure that patients make the right decisions and receive the right care. Simply put, we are reinventing right together.</p>
+            </div>
+        </div>
+    </body>
+</html>

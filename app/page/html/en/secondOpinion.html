@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        html, body { margin: 0; font-family: arial; }
+        body { font-size: 14px; color: #333; }
+        h1 { font-size: 0.56rem; }
+        .banner { overflow: hidden; min-height: 3.1rem; background-color: #f5f5f5; }
+        .banner > img { width: 100%; }
+        .container { padding: 0 0.3rem; }
+        .clearfix { }
+        .clearfix::after { content: ''; display: table; clear: both; }
+        .text-center { text-align: center; }
+        .red { color: #ff5645; }
+        .big { font-size: 1.5em; font-weight: bold; }
+        .bigger { font-size: 2em; font-weight: bold; }
+        .bold { font-weight: bold; }
+        p { line-height: 1.8em; }
+        .line-height { line-height: 2em; }
+
+        .risk-p { margin-top: .6rem; text-align: left; }
+        .risk-icon { height: 50px; background: url(../image/risk.png) no-repeat center center; background-size: contain; margin-bottom: .6rem; }
+        .ques { background: #f04534 url(../image/puzzle.png) no-repeat center center; background-size: cover; color: #fff; padding: .3rem 0; text-align: left; }
+        .ques-ul { list-style: none; padding-left: 0; margin: 0; }
+        .ques-ul > li { float: left; width: 33.33333%; text-align: center; overflow: hidden; margin-bottom: 0.4rem; }
+        .ques-ul > li .round { background: #fff; border: 2px solid #f5867b; border-radius: 50%; color: #f04534; line-height: 1.5em; height: 100px; width: 100px; box-sizing: border-box; display: inline-block; font-size: 12px; }
+        .ques-ul > li .round > p { margin: 0; display: table-cell; vertical-align: middle; height: 100px; }
+        .ques-ul > li.doctor { background: url(../image/doctor.png) no-repeat center center; background-size: 80px; height: 100px; }
+        .partner { overflow: hidden; }
+        .partner-box { background-color: #f7f7f7; overflow: hidden; padding: .2rem 0; }
+        .partner-p { min-height: 4.4rem; margin: .6rem 0; }
+        .partner-p > img { width: 100%; }
+        .srv-box { background: url(../image/banner.png) no-repeat center center; background-size: cover; overflow: hidden; position: relative; }
+        .srv-bg { position: absolute; top: .5rem; right: .3rem; bottom: 0; left: .3rem; background: #fff; opacity: 0.85; }
+        .srv-small { color: #999999; font-size: 12px; }
+        .srv-w { padding: .7rem .3rem .1rem .3rem; z-index: 1; position: relative; font-size: 15px; }
+        .srv-w-c { padding: 0 .3rem; }
+        .srv-ul { list-style: none; padding: 0; margin: 0; }
+        .srv-ul > li { float: left; width: 50%; }
+        .srv-year { border-right: 1px dashed #ff5645; font-size: .26rem; text-align: center; margin-top: .4rem; }
+        .srv-year .srv-title { font-size: .3rem; margin: 0 0 .2rem 0; }
+        .srv-year .srv-vp { margin-top: 3px; }
+        .srv-year .srv-op { color: #999999; text-decoration: line-through; margin: 0.2rem 0; }
+        .srv-year .srv-desc { list-style: none; margin: 0; color: #cccccc; font-size: 12px; line-height: 1.3em; padding-left: .5rem; }
+        .srv-year .srv-desc > li { margin-bottom: .6em; padding-left: 10px; text-align: left; padding-right: .24rem; position: relative; }
+        .srv-year .srv-desc > li::before { content: "▪"; position: absolute; left: 0; top: 0; font-size: .28rem; }
+        .noborder { border: none; }
+        .srv { background-color: #f7f7f7; padding-bottom: .4rem; }
+        .srv-c { background-color: #fff; overflow: hidden; }
+        .srv-c > p { padding: 0 .2rem; }
+        .srv-ul-t { list-style: none; padding: 0; margin-bottom: .4rem; }
+        .srv-ul-t > li { float: left; width: 33.33333%; }
+        .srv-ul-t .srv-year .srv-desc { padding-left: .12rem; }
+        .srv-ul-t .srv-year .srv-desc > li { padding-right: .1rem; }
+        .you-ul {padding-left: 0;list-style: none}
+        .you-ul > li {margin-bottom: .5rem;}
+        
+    </style>
+    <script>
+        function setFontSize() {
+            var deviceWidth = document.documentElement.clientWidth;
+            document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+        }
+
+        window.onorientationchange = setFontSize;
+        setFontSize();
+    </script>
+</head>
+<body>
+
+    <div class="banner">
+        <img src="../image/banner-en.png" />
+    </div>
+    <div class="text-center">
+        <p class="risk-p container line-height">The increasingly challenge from living environment put our health at <span class="red bigger">HUGE</span> risk <span class="bold">and made occurrence rate of chronic and critical disease <span class="red bigger">SOARING UP</span></span>.</p>
+        <div class="risk-icon"></div>
+        <div class="ques">
+            <p class="container">Our services revolutionize the problems of today's medical system.</p>
+            <ul class="ques-ul clearfix">
+                <li><div class="round"><p>Questioning <br />the need for surgery?</p></div></li>
+                <li class="doctor"></li>
+                <li><div class="round"><p>Can’t understand the diagnosis?</p></div></li>
+                <li><div class="round"><p>Skeptical of doctor’s advice?</p></div></li>
+                <li><div class="round"><p>Need help<br />for treatment options?</p></div></li>
+                <li><div class="round"><p>Symptoms are not improving?</p></div></li>
+            </ul>
+            <p class="container">We offer you the service to make the <span class="big">RIGHT</span> decision with the <span class="big">RIGHT</span> doctor for the <span class="big">RIGHT</span> treatment when you need it.</p>
+        </div>
+    </div>
+    <div class="container partner">
+        <div class="partner-box">
+            <p class="line-height"><span class="big">WHAT WE DO IN</span> a healthcare system that emphasizes "getting it quickly," You Best singularly focused on "<span class="red bigger">GETTING IT RIGHT</span>." We provide access to the best medical minds in the world to help ensure the right diagnosis and treatment plan.</p>
+        </div>
+        <div class="partner-p">
+            <img src="../image/coopr-en.png" />
+        </div>
+    </div>
+    <div class="srv-box">
+        <div class="srv-bg"></div>
+        <div class="srv-w">
+            <div class="srv-w-c">
+                <p>Our Service Offerings <span class="red big">UNLIKE</span> most second opinion companies, You Best addresses the entire continuum of care assisting members at every degree of medical uncertainty</p>
+                <p class="srv-small">— from finding a doctor to confirming the best diagnosis and treatment plans to helping members in acute care settings.</p>
+            </div>
+            <ul class="srv-ul clearfix">
+                <li>
+                    <div class="srv-year">
+                        <h3 class="srv-title">ONE YEAR</h3>
+                        <div class="red">Member Price</div>
+                        <div class="srv-vp red"><span class="big">&dollar;</span><span class="bigger">182</span> / Year</div>
+                        <div class="srv-op">List Price &dollar;228</div>
+                        <ul class="srv-desc">
+                            <li>One year unlimited times to use the service</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="srv-year">
+                        <h3 class="srv-title">HALF-YEAR</h3>
+                        <div class="red">Member Price</div>
+                        <div class="srv-vp red"><span class="big">&dollar;</span><span class="bigger">97</span> / Half-Year</div>
+                        <div class="srv-op">List Price &dollar;121</div>
+                        <ul class="srv-desc">
+                            <li>Half year unlimited times to use the service</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container srv">
+        <div class="srv-c">
+            <ul class="srv-ul-t clearfix">
+                <li>
+                    <div class="srv-year">
+                        <h3 class="srv-title">3 MONTHS</h3>
+                        <div class="red">Member Price</div>
+                        <div class="srv-vp red"><span class="big">&dollar;</span><span class="bigger">51</span><span class="nextbr"> / 3 Months</span></div>
+                        <div class="srv-op">List Price &dollar;64</div>
+                        <ul class="srv-desc">
+                            <li>3 months unlimited times to use the service</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="srv-year">
+                        <h3 class="srv-title">ONE MONTH</h3>
+                        <div class="red">Member Price</div>
+                        <div class="srv-vp red"><span class="big">&dollar;</span><span class="bigger">17</span> / Month</div>
+                        <div class="srv-op">List Price &dollar;21</div>
+                        <ul class="srv-desc">
+                            <li>1 month unlimited times to use the service</li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="srv-year">
+                        <h3 class="srv-title">ONE TIME</h3>
+                        <div class="red">Member Price</div>
+                        <div class="srv-vp red"><span class="big">&dollar;</span><span class="bigger">84</span> / Time</div>
+                        <div class="srv-op">List Price &dollar;107</div>
+                        <ul class="srv-desc">
+                            <li>1 time unlimited times to use the service</li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <p>Get <span class="red bigger">50% OFF</span> for your dependents, purchase for them during your Second Opinion service is effective. </p>
+            <p class="red">(Enjoy all YouBest services and products with member preferred pricing!  You can register the membership within placing order, Membership fee is &dollar;38/year.)</p>
+        </div>
+    </div>
+    <div class="container">
+        <p>Our expert Second Opinion provides members with an <span class="bold">IN-DEPTH</span> and <span class="bold">PERSONALIZED</span> expert clinical review and guidance based on their specific condition and a complete medical history.</p>
+        <p>We provide a <span class="red big">UNIQUE</span> and <span class="red big">HIGN IMPACT</span> employee benefit that:</p>
+        <ul class="you-ul">
+            <li><p><span class="red bold">Empowers People to Be Better Consumers of Health Care:</span> Our service is a valuable tool to help members ensure that they are spending their own money wisely – by ensuring that it is the right care.</p></li>
+            <li><p><span class="red bold">Improves Quality at the Point of Care: </span> we deliver a direct and immediate impact on quality by making sure members get the right diagnosis and treatment.</p></li>
+            <li><p><span class="red bold">Reduces Healthcare Costs: </span> When problems are discovered and corrected and individuals are put on the right path early on in care, unnecessary medical costs are avoided.</p></li>
+        </ul>
+    </div>
+
+</body>
+</html>

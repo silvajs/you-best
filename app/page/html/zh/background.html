@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <title></title>
+        <style>
+            html, body { margin: 0; font-family: arial; }
+            body { font-size: 14px; color: #333; }
+            .banner { overflow: hidden; min-height: 3.1rem; }
+            .banner > img { width: 100%; }
+            .container { padding: 0 0.3rem; }
+            .center {text-align: center;}
+            .bigger { font-size: .48rem; }
+            p {line-height: 1.8em;}
+            .heart {background: #e9f1f7 url(../image/background/heart.png) no-repeat center center;background-size: 55%;height: 1.8rem;width: 1.8rem;margin: .5rem auto .5rem auto;border-radius: 50%;}
+            .title {color: #5990c5;}
+            .desc {font-size: .3rem;}
+            .bg {background: #5da6f4 url(../image/background/qiu.png) no-repeat right bottom; background-size: 100%; color: #fff;padding-bottom: .2rem;margin: .48rem 0 2.1rem 0;overflow: hidden;}
+            .bg-title {margin: .48rem 0 .4rem 0;}
+            .talents {line-height: 2.2em;}
+            .doctor {border: 1px dashed #ccc;border-radius: 10px;padding: 2rem .2rem .4rem .2rem;position: relative;margin-bottom: .4rem;}
+            .doctor:before {content: '';position: absolute;width: 2.8rem;height: 2.8rem;border: 1px solid #ccc;border-radius: 50%;background: #fff;top: -1.4rem;left: 50%;margin-left: -1.4rem;}
+            .doctor:after {content: '';position: absolute;width: 2.6rem;height: 2.6rem;border: 1px solid transparent;border-radius: 50%;background: #fff;top: -1.3rem;left: 50%;margin-left: -1.3rem;background: url(../image/background/people.png) no-repeat center center;background-size: cover;overflow: hidden;}
+            .doctor > p{text-indent: 2em;margin: 0;}
+        </style>
+        <script type="text/javascript">
+            function setFontSize() {
+                var deviceWidth = document.documentElement.clientWidth;
+                document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+            }
+
+            window.onorientationchange = setFontSize;
+            setFontSize();
+
+        </script>
+    </head>
+    <body>
+        <div class="banner">
+            <img src="../image/background/banner.png" />
+        </div>
+        <div class="container center">
+            <div class="heart"></div>
+            <p class="bigger title">做好准备，正确选择</p>
+            <p class="desc">作为优可信第二诊疗意见的一员，动动手指，<br />
+                你便可以享受全球53,000名顶级医生的专业服务。<br />
+                无需离家，你便能够与著名医生取得联系，<br />
+                让我们精心挑选的医学专家为你解答所有医学问题。
+            </p>
+        </div>
+        <div class="container bg center">
+            <p class="bigger bg-title">医术精湛，专家把关</p>
+            <p class="talents">我们拥有遍布全球的<span class="bigger">53,000</span>多位知名医生；<br />
+                其中<span class="bigger">45,000</span>位来自美国本土；<br />
+                涵盖超过<span class="bigger">450</span>个医学专业及附属专业；<br />
+                代表医师队伍前<span class="bigger">5%</span>的优秀人才。
+            </p>
+        </div>
+        <div class="container">
+            <div class="doctor">
+                <p>在20多年的时间里，我们开展了一项深入的医生调研来确定哪些医生最受其他医生信赖。这是医学界规模最大的一次不间断的同行业调研。</p>
+                <p>最终，我们建立了最佳医生数据库，里面包含了全球范围内超过450个专业和附属专业领域53000多名医生的资料。他们是医学界的顶级专家！其中包括全美排名前5%的医生。每一位医生都受到他/她同事们的大力推荐。</p>
+                <p>目前，最佳医生数据库已经成为全球医疗健康领域的领航者。</p>
+            </div>
+        </div>
+    </body>
+</html>

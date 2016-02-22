@@ -11,17 +11,10 @@ import Loading from '../../component/Loading';
 class IntroducePage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            url: 'http://www.baidu.com'
-        }
     }
 
     componentDidMount() {
-        InteractionManager.runAfterInteractions(() => {
-            this.setState({
-                url: 'http://www.baidu.com'
-            });
-        });
+        
     }
 
     render() {
@@ -39,7 +32,7 @@ class IntroducePage extends React.Component {
                 </ToolbarAndroid>
                 <WebView
                     ref='webview'
-                    source={{uri: this.state.url}}
+                    source={require('../html/zh/secondOpinion.html')}
                     style={styles.webView}
                     javaScriptEnabled={true}
                     domStorageEnabled={true}
