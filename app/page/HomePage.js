@@ -6,8 +6,6 @@ import React, {
     ScrollView,
     Dimensions,
     TouchableHighlight,
-    InteractionManager,
-    TouchableOpacity,
 } from 'react-native';
 import IntroducePage from './secondOpinion/IntroducePage';
 
@@ -27,52 +25,17 @@ class HomePage extends React.Component {
                     </View>
                     <View style={styles.menus}>
                         <View style={styles.menuItem}>
-                            <TouchableHighlight style={styles.menuTouch} underlayColor="rgb(210, 230, 255)" onPress={this.goIntroduce.bind(this)}>
-                                <View style={styles.menu}>
-                                    <Image source={require('../image/img_2ndopinion.png')} style={styles.menuIcon}></Image>
-                                    <Text style={styles.menuTitle}>第二诊疗意见</Text>
-                                    <Text style={styles.menuDesc}>全球超50,000名顶级医生提供专业级的第二诊疗意见</Text>
-                                </View>
-                            </TouchableHighlight>
-                            <TouchableHighlight style={styles.menuTouch} underlayColor="rgb(210, 230, 255)">
-                                <View style={styles.menu}>
-                                    <Image source={require('../image/img_homecheck.png')} style={styles.menuIcon}></Image>
-                                    <Text style={styles.menuTitle}>上门体检</Text>
-                                    <Text style={styles.menuDesc}>预约上门体检，您可合理安排时间，免去上医院排长队</Text>
-                                </View>
-                            </TouchableHighlight>
+                            <Menu title='第二诊疗意见' subTitle='全球超50,000名顶级医生提供专业级的第二诊疗意见' icon={require('../image/img_2ndopinion.png')}
+                                onPress={this.goIntroduce.bind(this)}></Menu>
+                            <Menu title='上门体检' subTitle='预约上门体检，您可合理安排时间，免去上医院排长队' icon={require('../image/img_homecheck.png')}></Menu>
                         </View>
                         <View style={styles.menuItem}>
-                            <TouchableHighlight style={styles.menuTouch} underlayColor="rgb(210, 230, 255)">
-                                <View style={styles.menu}>
-                                    <Image source={require('../image/img_teledoc.png')} style={styles.menuIcon}></Image>
-                                    <Text style={styles.menuTitle}>电话医生</Text>
-                                    <Text style={styles.menuDesc}>海内外顶级医生为您提供全时段在线，电话问诊服务</Text>
-                                </View>
-                            </TouchableHighlight>
-                            <TouchableHighlight style={styles.menuTouch} underlayColor="rgb(210, 230, 255)">
-                                <View style={styles.menu}>
-                                    <Image source={require('../image/img_overseagreen.png')} style={styles.menuIcon}></Image>
-                                    <Text style={styles.menuTitle}>海外绿色通道</Text>
-                                    <Text style={styles.menuDesc}>提供全球最优质的外海医疗资源，最便捷贴心的陪诊服</Text>
-                                </View>
-                            </TouchableHighlight>
+                            <Menu title='电话医生' subTitle='海内外顶级医生为您提供全时段在线，电话问诊服务' icon={require('../image/img_teledoc.png')}></Menu>
+                            <Menu title='海外绿色通道' subTitle='提供全球最优质的外海医疗资源，最便捷贴心的陪诊服' icon={require('../image/img_overseagreen.png')}></Menu>
                         </View>
                         <View style={styles.menuItem}>
-                            <TouchableHighlight style={styles.menuTouch} underlayColor="rgb(210, 230, 255)">
-                                <View style={styles.menu}>
-                                    <Image source={require('../image/img_overseacheck.png')} style={styles.menuIcon}></Image>
-                                    <Text style={styles.menuTitle}>海外体检</Text>
-                                    <Text style={styles.menuDesc}>成熟的海外高端私人健康体检接待模式，细节精益求精</Text>
-                                </View>
-                            </TouchableHighlight>
-                            <TouchableHighlight style={styles.menuTouch} underlayColor="rgb(210, 230, 255)">
-                                <View style={styles.menu}>
-                                    <Image source={require('../image/img_insurance.png')} style={styles.menuIcon}></Image>
-                                    <Text style={styles.menuTitle}>保险销售理赔</Text>
-                                    <Text style={styles.menuDesc}>最优质的产品，最特色的诚信服务保障您及家人的健康</Text>
-                                </View>
-                            </TouchableHighlight>
+                            <Menu title='海外体检' subTitle='成熟的海外高端私人健康体检接待模式，细节精益求精' icon={require('../image/img_overseacheck.png')}></Menu>
+                            <Menu title='保险销售理赔' subTitle='最优质的产品，最特色的诚信服务保障您及家人的健康' icon={require('../image/img_insurance.png')}></Menu>
                         </View>
                     </View>
                 </ScrollView>
@@ -81,13 +44,43 @@ class HomePage extends React.Component {
     }
 
     goIntroduce() {
-        let {navigator} = this.props;
-        requestAnimationFrame(() => {
-            navigator.push({
-                name: 'IntroducePage',
-                component: IntroducePage
-            });
+        this.props.navigator.push({
+            name: 'IntroducePage',
+            component: IntroducePage
         });
+    }
+}
+
+class Menu extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    static defaultProps = {
+        icon: require('../image/img_2ndopinion.png'),
+        title: '',
+        subTitle: '',
+        onPress: null
+    };
+
+    render() {
+        return (
+            <TouchableHighlight style={styles.menuTouch} underlayColor="rgb(210, 230, 255)" onPress={this.onPress.bind(this)}>
+                <View style={styles.menu}>
+                    <Image source={this.props.icon} style={styles.menuIcon}></Image>
+                    <Text style={styles.menuTitle}>{this.props.title}</Text>
+                    <Text style={styles.menuDesc}>{this.props.subTitle}</Text>
+                </View>
+            </TouchableHighlight>
+        );
+    }
+
+    onPress() {
+        if (this.props.onPress) {
+            requestAnimationFrame(() => {
+                this.props.onPress();
+            });
+        }
     }
 }
 
