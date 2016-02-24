@@ -26,41 +26,61 @@ class TabPage extends React.Component {
                     <View><Text>First2</Text></View>
                     <View><Text>First3</Text></View>
                 </ViewPagerAndroid>
-                <View style={styles.tab}>
-                    <TouchableWithoutFeedback onPress={this.goPage(0)}>
-                        <View style={styles.tabItem}>
-                            <Image source={this.state.page === 0 ? require('../image/tab_home_focus.png') : require('../image/tab_home.png')} style={styles.tabIcon}></Image>
-                            <Text style={[styles.tabTitle, this.state.page === 0 ? styles.tabTitleActive : {}]}>首页</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback onPress={this.goPage(1)}>
-                        <View style={styles.tabItem}>
-                            <Image source={this.state.page === 1 ? require('../image/tab_notify_focus.png') : require('../image/tab_notify.png')} style={styles.tabIcon}></Image>
-                            <Text  style={[styles.tabTitle, this.state.page === 1 ? styles.tabTitleActive : {}]}>消息</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback onPress={this.goPage(2)}>
-                        <View style={styles.tabItem}>
-                            <Image source={this.state.page === 2 ? require('../image/tab_me_focus.png') : require('../image/tab_me.png')} style={styles.tabIcon}></Image>
-                            <Text  style={[styles.tabTitle, this.state.page === 2 ? styles.tabTitleActive : {}]}>个人中心</Text>
-                        </View>
-                    </TouchableWithoutFeedback>
-                </View>
+                <TabHost ref="tabhost" onTabChange={this.goPage.bind(this)}></TabHost>
             </View>
         );
     }
 
     onPageSelected(e) {
-        this.setState({
+        this.refs.tabhost.setState({
             page: e.nativeEvent.position
         });
     }
 
-    goPage(pageIndex) {
+    goPage(page) {
+        this.viewPager.setPageWithoutAnimation(page);
+    }
+}
+
+class TabHost extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            page: 0
+        };
+    }
+
+    render() {
+        return (
+            <View style={styles.tab}>
+                <TouchableWithoutFeedback onPress={this.goPage(0)}>
+                    <View style={styles.tabItem}>
+                        <Image source={this.state.page === 0 ? require('../image/tab_home_focus.png') : require('../image/tab_home.png')} style={styles.tabIcon}></Image>
+                        <Text style={[styles.tabTitle, this.state.page === 0 ? styles.tabTitleActive : {}]}>首页</Text>
+                    </View>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={this.goPage(1)}>
+                    <View style={styles.tabItem}>
+                        <Image source={this.state.page === 1 ? require('../image/tab_notify_focus.png') : require('../image/tab_notify.png')} style={styles.tabIcon}></Image>
+                        <Text  style={[styles.tabTitle, this.state.page === 1 ? styles.tabTitleActive : {}]}>消息</Text>
+                    </View>
+                </TouchableWithoutFeedback>
+                <TouchableWithoutFeedback onPress={this.goPage(2)}>
+                    <View style={styles.tabItem}>
+                        <Image source={this.state.page === 2 ? require('../image/tab_me_focus.png') : require('../image/tab_me.png')} style={styles.tabIcon}></Image>
+                        <Text  style={[styles.tabTitle, this.state.page === 2 ? styles.tabTitleActive : {}]}>个人中心</Text>
+                    </View>
+                </TouchableWithoutFeedback>
+            </View>
+        );
+    }
+
+    goPage(page) {
         return () => {
-            this.viewPager.setPageWithoutAnimation(pageIndex);
+            let {onTabChange} = this.props;
+            onTabChange(page);
             this.setState({
-                page: pageIndex
+                page: page
             });
         }
     }

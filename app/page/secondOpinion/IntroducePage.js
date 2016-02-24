@@ -7,6 +7,8 @@ import React, {
     InteractionManager,
 } from 'react-native';
 import Loading from '../../component/Loading';
+import MyToolbar from '../../component/MyToolbar';
+import {ButtonDefault, ButtonPrimary} from '../../component/Button';
 
 class IntroducePage extends React.Component {
     constructor(props) {
@@ -14,22 +16,19 @@ class IntroducePage extends React.Component {
     }
 
     componentDidMount() {
-        
+
     }
 
     render() {
         let actions = [{title: '客服', icon: require('../../image/icon_tel.png'), show: 'always'}];
         return (
             <View style={styles.container}>
-                <ToolbarAndroid
-                    style={styles.bar}
-                    navIcon={require('../../image/btn_back.png')}
-                    onIconClicked={()=>{this.props.navigator.pop()}}
+                <MyToolbar
+                    navigator={this.props.navigator}
                     title='第二诊疗意见'
-                    titleColor='#ff5645'
                     actions={actions}
                     onActionSelected={this.onActionSelected.bind(this)}>
-                </ToolbarAndroid>
+                </MyToolbar>
                 <WebView
                     ref='webview'
                     source={require('../html/zh/secondOpinion.html')}
@@ -42,7 +41,10 @@ class IntroducePage extends React.Component {
                     renderLoading={()=>{return <Loading />} }
                     >
                 </WebView>
-                <View style={styles.footer}></View>
+                <View style={styles.footer}>
+                    <View style={styles.cell}><ButtonDefault>现在购买</ButtonDefault></View>
+                    <View style={styles.cell}><ButtonPrimary>开始第二意见</ButtonPrimary></View>
+                </View>
             </View>
         );
     }
@@ -58,17 +60,19 @@ var styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
-    bar: {
-        height: 52,
-        backgroundColor: '#fff',
-    },
     webView: {
         flex: 1,
         backgroundColor: 'rgba(255,255,255,0.8)',
     },
     footer: {
-        height: 50,
-        backgroundColor: 'red'
+        height: 52,
+        paddingHorizontal: 3,
+        flexDirection: 'row',
+    },
+    cell: {
+        flex: 1,
+        justifyContent: 'center',
+        paddingHorizontal: 3,
     }
 });
 
