@@ -14,10 +14,17 @@ import PurchaseInfoPage from './PurchaseInfoPage';
 class IntroducePage extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            startLoadWeb: false
+        };
     }
 
     componentDidMount() {
-
+        InteractionManager.runAfterInteractions(()=>{
+            this.setState({
+                startLoadWeb: true,
+            });
+        });
     }
 
     render() {
@@ -30,18 +37,24 @@ class IntroducePage extends React.Component {
                     actions={actions}
                     onActionSelected={this.onActionSelected.bind(this)}>
                 </MyToolbar>
-                <WebView
-                    ref='webview'
-                    source={require('../html/zh/secondOpinion.html')}
-                    style={styles.webView}
-                    javaScriptEnabled={true}
-                    domStorageEnabled={true}
-                    startInLoadingState={true}
-                    decelerationRate="normal"
-                    onShouldStartLoadWithRequest={true}
-                    renderLoading={()=>{return <Loading />} }
-                    >
-                </WebView>
+                <View style={styles.webView}>
+                    {
+                        this.state.startLoadWeb
+                        &&
+                        <WebView
+                            ref='webview'
+                            source={require('../html/zh/secondOpinion.html')}
+                            style={styles.webView}
+                            javaScriptEnabled={true}
+                            domStorageEnabled={true}
+                            startInLoadingState={true}
+                            decelerationRate="normal"
+                            onShouldStartLoadWithRequest={true}
+                            renderLoading={()=>{return <Loading />} }
+                            >
+                        </WebView>
+                    }
+                </View>
                 <View style={styles.footer}>
                     <View style={styles.cell}><ButtonDefault onPress={this.goPurchase.bind(this)}>现在购买</ButtonDefault></View>
                     <View style={styles.cell}><ButtonPrimary>开始第二意见</ButtonPrimary></View>
