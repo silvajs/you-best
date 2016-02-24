@@ -6,6 +6,7 @@ import React, {
 import LoadingPage from './page/LoadingPage';
 import TabPage from './page/TabPage';
 import IntroducePage from './page/secondOpinion/IntroducePage';
+import PurchaseInfoPage from './page/secondOpinion/PurchaseInfoPage';
 
 class NavigatorComponent extends React.Component {
 
@@ -31,7 +32,7 @@ class NavigatorComponent extends React.Component {
     render() {
         return (
             <Navigator ref='nav'
-                initialRoute = {{name: 'loadingPage', component: IntroducePage, index: 0}}
+                initialRoute = {{name: 'loadingPage', component: LoadingPage, index: 0}}
                 configureScene = {(route, routeStack) => {
                     console.log(route);
                     let animate = route.animate;
@@ -48,7 +49,7 @@ class NavigatorComponent extends React.Component {
     }
 
     onMainScreen() {
-        return this.route.name === 'loadingPage' || this.route.name === 'LoginPage';
+        return this.route.name === 'TabPage' || this.route.name === 'LoginPage';
     }
 
     goBack() {

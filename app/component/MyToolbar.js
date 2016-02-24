@@ -10,10 +10,10 @@ export default class MyToolbar extends React.Component {
 
     static defaultProps = {
         title: '',
-        titleColor: '#ff5645',
+        titleColor: '#333',
         navIcon: null,
         actions: null,
-        onActionSelected: null
+        onActionSelected: function() {}
     };
 
     render() {

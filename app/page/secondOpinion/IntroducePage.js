@@ -9,6 +9,7 @@ import React, {
 import Loading from '../../component/Loading';
 import MyToolbar from '../../component/MyToolbar';
 import {ButtonDefault, ButtonPrimary} from '../../component/Button';
+import PurchaseInfoPage from './PurchaseInfoPage';
 
 class IntroducePage extends React.Component {
     constructor(props) {
@@ -42,7 +43,7 @@ class IntroducePage extends React.Component {
                     >
                 </WebView>
                 <View style={styles.footer}>
-                    <View style={styles.cell}><ButtonDefault>现在购买</ButtonDefault></View>
+                    <View style={styles.cell}><ButtonDefault onPress={this.goPurchase.bind(this)}>现在购买</ButtonDefault></View>
                     <View style={styles.cell}><ButtonPrimary>开始第二意见</ButtonPrimary></View>
                 </View>
             </View>
@@ -51,6 +52,13 @@ class IntroducePage extends React.Component {
 
     onActionSelected(position) {
 
+    }
+
+    goPurchase() {
+        this.props.navigator.push({
+            component: PurchaseInfoPage,
+            name: 'PurchaseInfoPage'
+        });
     }
 
 }

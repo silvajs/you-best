@@ -2,7 +2,7 @@ import React, {
     StyleSheet,
     View,
     Text,
-    TouchableHighlight
+    TouchableHighlight,
 } from 'react-native';
 
 class ButtonDefault extends React.Component {
@@ -11,13 +11,21 @@ class ButtonDefault extends React.Component {
     }
 
     static defaultProps = {
-        disabled: false
+        onPress: null,
+        disabled: false,
+        height: 40,
+    };
+
+    static propTypes = {
+        onPress: React.PropTypes.func,
+        disabled: React.PropTypes.bool,
+        height: React.PropTypes.number
     };
 
     render() {
         return (
             <TouchableHighlight onPress={this.onPress.bind(this)} underlayColor='#ff5645'>
-                <View style={styles.btnDefault}>
+                <View style={[styles.btnDefault, {height: this.props.height}]}>
                     <Text style={styles.btnDefaultText}>{this.props.children}</Text>
                 </View>
             </TouchableHighlight>
@@ -25,7 +33,11 @@ class ButtonDefault extends React.Component {
     }
 
     onPress() {
-        console.log("press");
+        if (!this.props.disabled && this.props.onPress) {
+            requestAnimationFrame(() => {
+                this.props.onPress();
+            });
+        }
     }
 }
 
@@ -37,7 +49,7 @@ class ButtonPrimary extends ButtonDefault {
     render() {
         return (
             <TouchableHighlight onPress={this.onPress.bind(this)}>
-                <View style={[styles.btnDefault, styles.btnPrimary]}>
+                <View style={[styles.btnDefault, styles.btnPrimary, {height: this.props.height}]}>
                     <Text style={[styles.btnDefaultText, styles.btnDefaultPrimary]}>{this.props.children}</Text>
                 </View>
             </TouchableHighlight>
@@ -47,13 +59,13 @@ class ButtonPrimary extends ButtonDefault {
 
 var styles = StyleSheet.create({
     btnDefault: {
-        paddingHorizontal: 12,
-        paddingVertical: 6,
+        height: 40,
         backgroundColor: '#fff',
         borderColor: '#ff5645',
         borderWidth: 1,
         borderRadius: 1,
         alignItems: 'center',
+        justifyContent: 'center',
     },
     btnPrimary: {
         backgroundColor: '#ff5645',
