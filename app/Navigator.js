@@ -33,7 +33,7 @@ class NavigatorComponent extends React.Component {
     render() {
         return (
             <Navigator ref='nav'
-                initialRoute = {{name: 'loadingPage', component: PurchaseInfoPage, index: 0}}
+                initialRoute = {{name: 'loadingPage', component: LoadingPage, index: 0}}
                 configureScene = {(route, routeStack) => {
                     let animate = route.animate;
                     return animate || Navigator.SceneConfigs.FloatFromRight;

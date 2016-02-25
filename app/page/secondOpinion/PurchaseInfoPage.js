@@ -9,12 +9,14 @@ import MyToolbar from '../../component/MyToolbar';
 import {ButtonPrimary} from '../../component/Button';
 import FormGroup from '../../component/FormGroup';
 import SoServicePage from './SoServicePage';
+import FamilyListPage from './FamilyListPage';
 
 class PurchaseInfoPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            service: null
+            service: null,
+            family: null
         }
     }
 
@@ -32,7 +34,7 @@ class PurchaseInfoPage extends React.Component {
                             <Text style={styles.formControlText}>请选择服务类型</Text>
                         }
                     </FormGroup>
-                    <FormGroup title='服务对象' onPress={this.selectCustomer.bind(this)}>
+                    <FormGroup title='服务对象' onPress={this.selectFamily.bind(this)}>
                         <Text style={styles.formControlText}>请选择用户</Text>
                     </FormGroup>
                     <View style={styles.line}></View>
@@ -60,8 +62,19 @@ class PurchaseInfoPage extends React.Component {
         });
     }
 
-    selectCustomer() {
-
+    selectFamily() {
+        var me = this;
+        this.props.navigator.push({
+            name: 'FamilyListPage',
+            component: FamilyListPage,
+            params: {
+                selectFamily: function(family) {
+                    me.setState({
+                        family: family
+                    });
+                }
+            }
+        });
     }
 }
 
