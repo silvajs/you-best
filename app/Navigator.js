@@ -7,6 +7,7 @@ import LoadingPage from './page/LoadingPage';
 import TabPage from './page/TabPage';
 import IntroducePage from './page/secondOpinion/IntroducePage';
 import PurchaseInfoPage from './page/secondOpinion/PurchaseInfoPage';
+import SoServicePage from './page/secondOpinion/SoServicePage';
 
 class NavigatorComponent extends React.Component {
 
@@ -32,12 +33,13 @@ class NavigatorComponent extends React.Component {
     render() {
         return (
             <Navigator ref='nav'
-                initialRoute = {{name: 'loadingPage', component: TabPage, index: 0}}
+                initialRoute = {{name: 'loadingPage', component: PurchaseInfoPage, index: 0}}
                 configureScene = {(route, routeStack) => {
                     let animate = route.animate;
                     return animate || Navigator.SceneConfigs.FloatFromRight;
                 }}
                 renderScene = {(route, navigator) => {
+                    console.log(route);
                     let Component = route.component;
                     this.route = route;
                     this.navigator = navigator;

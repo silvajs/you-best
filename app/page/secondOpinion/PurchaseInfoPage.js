@@ -8,10 +8,14 @@ import React, {
 import MyToolbar from '../../component/MyToolbar';
 import {ButtonPrimary} from '../../component/Button';
 import FormGroup from '../../component/FormGroup';
+import SoServicePage from './SoServicePage';
 
 class PurchaseInfoPage extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            service: null
+        }
     }
 
     render() {
@@ -21,7 +25,12 @@ class PurchaseInfoPage extends React.Component {
                 <View style={styles.form}>
                     <View style={styles.header}><Text style={styles.title}>请如实填写以下信息：</Text></View>
                     <FormGroup title='服务类型' onPress={this.selectService.bind(this)}>
-                        <Text style={styles.formControlText}>请选择服务类型</Text>
+                        {   this.state.service
+                            ?
+                            <View><Text style={styles.serviceName}>{this.state.service.name}</Text></View>
+                            :
+                            <Text style={styles.formControlText}>请选择服务类型</Text>
+                        }
                     </FormGroup>
                     <FormGroup title='服务对象' onPress={this.selectCustomer.bind(this)}>
                         <Text style={styles.formControlText}>请选择用户</Text>
@@ -37,7 +46,18 @@ class PurchaseInfoPage extends React.Component {
     }
 
     selectService() {
-
+        var me = this;
+        this.props.navigator.push({
+            name: 'SoServicePage',
+            component: SoServicePage,
+            params: {
+                selectService: function(service) {
+                    me.setState({
+                        service: service
+                    });
+                }
+            }
+        });
     }
 
     selectCustomer() {
@@ -70,6 +90,9 @@ var styles = StyleSheet.create({
     formControlText: {
         color: '#ccc',
         fontSize: 15,
+    },
+    serviceName: {
+        fontSize: 15
     },
     footer: {
         marginBottom: 10,
