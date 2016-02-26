@@ -14,7 +14,7 @@ export default class FamilyListPage extends React.Component {
     }
 
     render() {
-        let actions = [{title: '添加成员', icon: require('../../image/btn_add_hl.png'), show: 'always'}];
+        let actions = [{title: '添加成员', icon: require('../../image/btn_title_add.png'), show: 'always'}];
         return (
             <View style={styles.container}>
                 <MyToolbar navigator={this.props.navigator}
