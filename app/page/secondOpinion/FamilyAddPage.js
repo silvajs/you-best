@@ -82,6 +82,9 @@ export default class FamilyAddPage extends React.Component {
     }
 
     onSelectGender(value) {
+        if (value === '') {
+            return;
+        }
         this.setState({
             gender: value
         });
