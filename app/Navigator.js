@@ -7,7 +7,7 @@ import LoadingPage from './page/LoadingPage';
 import TabPage from './page/TabPage';
 import IntroducePage from './page/secondOpinion/IntroducePage';
 import PurchaseInfoPage from './page/secondOpinion/PurchaseInfoPage';
-import SoServicePage from './page/secondOpinion/SoServicePage';
+import FamilyListPage from './page/secondOpinion/FamilyAddPage';
 
 class NavigatorComponent extends React.Component {
 
@@ -19,7 +19,7 @@ class NavigatorComponent extends React.Component {
                 me.goBack();
                 return true;
             }
-            Alert.alert('退出', '确定要退出吗？', [{
+            Alert.alert('提示', '确定要退出吗？', [{
                 text: '取消'
             }, {
                 text: '确定', onPress: () => {

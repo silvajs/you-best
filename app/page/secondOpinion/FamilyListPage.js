@@ -7,6 +7,9 @@ import React, {
 } from 'react-native';
 import MyToolbar from '../../component/MyToolbar';
 import NoFamilyView from './NoFamilyView';
+import FamilyAddPage from './FamilyAddPage';
+
+var familyMembers = [];
 
 export default class FamilyListPage extends React.Component {
     constructor(props) {
@@ -21,14 +24,23 @@ export default class FamilyListPage extends React.Component {
                     title='选择家庭成员'
                     actions={actions}
                     onActionSelected={this.onAdd.bind(this)}/>
-                <NoFamilyView />
+                {
+                    familyMembers.length === 0
+                    ?
+                    <NoFamilyView />
+                    :
+                    <View></View>
+                }
             </View>
 
         );
     }
 
     onAdd() {
-        React.ToastAndroid.show('待完成...', React.ToastAndroid.SHORT);
+        this.props.navigator.push({
+            name: 'FamilyAddPage',
+            component: FamilyAddPage
+        });
     }
 }
 

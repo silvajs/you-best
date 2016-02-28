@@ -13,12 +13,12 @@ class FormGroup extends React.Component {
 
     static defaultProps = {
         title: '',
-        placeholder: '',
-        hasArrow: true
+        hasArrow: true,
+        checked: false,
     };
 
     static propTypes = {
-        onPress: React.PropTypes.func
+        onPress: React.PropTypes.func,
     };
 
     render() {
@@ -31,6 +31,12 @@ class FormGroup extends React.Component {
                         this.props.hasArrow &&
                         <View style={styles.formArrow}>
                             <Image source={require('../image/icon_arrow_right.png')} style={styles.formArrowIcon}></Image>
+                        </View>
+                    }
+                    {
+                        this.props.checked &&
+                        <View style={styles.formArrow}>
+                            <Image source={require('../image/icon_mark.png')} style={styles.markIcon}></Image>
                         </View>
                     }
                 </View>
@@ -54,7 +60,7 @@ var styles = StyleSheet.create({
         borderColor: '#eeeeee',
         borderTopWidth: 1,
         alignItems: 'center',
-        paddingHorizontal: 20
+        paddingHorizontal: 20,
     },
     formLabel: {
         marginRight: 30
@@ -64,7 +70,7 @@ var styles = StyleSheet.create({
         fontSize: 15,
     },
     formControl: {
-        flex: 1
+        flex: 1,
     },
     formControlText: {
         color: '#ccc'
@@ -75,6 +81,10 @@ var styles = StyleSheet.create({
     formArrowIcon: {
         width: 12,
         height: 12
+    },
+    markIcon: {
+        width: 15,
+        height: 15,
     },
 });
 

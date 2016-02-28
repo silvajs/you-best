@@ -24,7 +24,7 @@ class ButtonDefault extends React.Component {
 
     render() {
         return (
-            <TouchableHighlight onPress={this.onPress.bind(this)} underlayColor='#ff5645'>
+            <TouchableHighlight onPress={this.onPress.bind(this)} underlayColor='red'>
                 <View style={[styles.btnDefault, {height: this.props.height}]}>
                     <Text style={styles.btnDefaultText}>{this.props.children}</Text>
                 </View>
