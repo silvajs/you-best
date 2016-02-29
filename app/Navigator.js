@@ -7,7 +7,7 @@ import LoadingPage from './page/LoadingPage';
 import TabPage from './page/TabPage';
 import IntroducePage from './page/secondOpinion/IntroducePage';
 import PurchaseInfoPage from './page/secondOpinion/PurchaseInfoPage';
-import FamilyListPage from './page/secondOpinion/FamilyAddPage';
+import FamilyListPage from './page/secondOpinion/FamilyListPage';
 
 class NavigatorComponent extends React.Component {
 

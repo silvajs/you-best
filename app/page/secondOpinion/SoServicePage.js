@@ -37,7 +37,7 @@ export default class SoServicePage extends React.Component {
         selectService: React.PropTypes.func
     };
 
-    componentWillMount() {
+    componentWillUnmount() {
         this.timer && clearTimeout(this.timer);
     }
 

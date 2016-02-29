@@ -20,7 +20,7 @@ export default class MyToolbar extends React.Component {
         return (
             <ToolbarAndroid
                 style={styles.bar}
-                navIcon={this.props.navIcon ? this.props.navIcon : require('../image/btn_back.png')}
+                navIcon={this.props.navIcon ? this.props.navIcon : require('image!btn_back')}
                 onIconClicked={this.onIconClicked.bind(this)}
                 title={this.props.title}
                 titleColor={this.props.titleColor}

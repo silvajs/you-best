@@ -52,7 +52,7 @@ export default class FamilyRelationPage extends React.Component {
             return (
                 <FormGroup key={relation.id} title={relation.name} hasArrow={false} checked={index === this.state.selectedItem}
                     onPress={this.selectRelation.bind(this, index)}>
-                    {relation.note && <Text style={styles.note}>非直系亲属请选择此项，暂不享受第二份半价优惠</Text>}
+                    {relation.note && <Text style={styles.note}>非直系亲属暂不享受第二份半价优惠</Text>}
                 </FormGroup>
             )
         }.bind(this));
@@ -93,7 +93,7 @@ var styles = StyleSheet.create({
     },
     note: {
         fontSize: 12,
-        color: '#ccc',
+        color: '#ff5645',
     },
     markIcon: {
         width: 15,

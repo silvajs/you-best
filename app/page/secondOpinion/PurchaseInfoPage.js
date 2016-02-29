@@ -34,8 +34,16 @@ class PurchaseInfoPage extends React.Component {
                             <Text style={styles.formControlText}>请选择服务类型</Text>
                         }
                     </FormGroup>
-                    <FormGroup title='服务对象' onPress={this.selectFamily.bind(this)}>
-                        <Text style={styles.formControlText}>请选择用户</Text>
+                    <FormGroup title='服务对象' onPress={this.selectFamily.bind(this)} height='auto'>
+                        {   this.state.family
+                            ?
+                            <View>
+                                <FamilyInfo family={this.state.family} />
+                            </View>
+                            :
+                            <View style={styles.serviceBox}><Text style={styles.formControlText}>请选择用户</Text></View>
+
+                        }
                     </FormGroup>
                     <View style={styles.line}></View>
                 </View>
@@ -78,6 +86,24 @@ class PurchaseInfoPage extends React.Component {
     }
 }
 
+class FamilyInfo extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        let family = this.props.family;
+        return (
+            <View style={styles.familyBox}>
+                <Text style={styles.familyText}>{family.name + ' - ' + family.relation.name}</Text>
+                <Text style={styles.familyText}>{(family.gender === 'male' ? '男' : '女') + '    生日：' + family.birthday}</Text>
+                <Text style={styles.familyText}>{'手机：' + family.phone}</Text>
+                <Text style={styles.familyText}>{'邮箱：' + family.email}</Text>
+            </View>
+        );
+    }
+}
+
 var styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -110,6 +136,16 @@ var styles = StyleSheet.create({
     footer: {
         marginBottom: 10,
         marginHorizontal: 10
+    },
+    familyBox: {
+        paddingVertical: 10,
+    },
+    familyText: {
+        fontSize: 15,
+    },
+    serviceBox: {
+        height: 52,
+        justifyContent: 'center'
     }
 });
 

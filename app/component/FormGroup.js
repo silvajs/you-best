@@ -15,16 +15,20 @@ class FormGroup extends React.Component {
         title: '',
         hasArrow: true,
         checked: false,
+        height: 52,
     };
 
     static propTypes = {
         onPress: React.PropTypes.func,
+        onLongPress: React.PropTypes.func
     };
 
     render() {
         return (
-            <TouchableHighlight underlayColor='#d6d4d4' onPress={this.onPress.bind(this)}>
-                <View style={styles.formGroup}>
+            <TouchableHighlight underlayColor='#d6d4d4'
+                onPress={this.onPress.bind(this)}
+                onLongPress={this.onLongPress.bind(this)}>
+                <View style={[styles.formGroup, this.props.height !== 'auto' && {height: this.props.height}]}>
                     <View style={styles.formLabel}><Text style={styles.formLabelText}>{this.props.title}</Text></View>
                     <View style={styles.formControl}>{this.props.children}</View>
                     {
@@ -51,11 +55,16 @@ class FormGroup extends React.Component {
             });
         }
     }
+
+    onLongPress() {
+        if (this.props.onLongPress) {
+            this.props.onLongPress();
+        }
+    }
 }
 
 var styles = StyleSheet.create({
     formGroup: {
-        height: 52,
         flexDirection: 'row',
         borderColor: '#eeeeee',
         borderTopWidth: 1,
