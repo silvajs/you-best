@@ -20,11 +20,7 @@ class IntroducePage extends React.Component {
     }
 
     componentDidMount() {
-        InteractionManager.runAfterInteractions(()=>{
-            this.setState({
-                startLoadWeb: true,
-            });
-        });
+
     }
 
     render() {
@@ -38,22 +34,17 @@ class IntroducePage extends React.Component {
                     onActionSelected={this.onActionSelected.bind(this)}>
                 </MyToolbar>
                 <View style={styles.webView}>
-                    {
-                        this.state.startLoadWeb
-                        &&
-                        <WebView
-                            ref='webview'
-                            source={require('../html/zh/secondOpinion.html')}
-                            style={styles.webView}
-                            javaScriptEnabled={true}
-                            domStorageEnabled={true}
-                            startInLoadingState={true}
-                            decelerationRate="normal"
-                            onShouldStartLoadWithRequest={true}
-                            renderLoading={()=>{return <Loading />} }
-                            >
-                        </WebView>
-                    }
+                    <WebView
+                        ref='webview'
+                        source={require('../html/zh/secondOpinion.html')}
+                        style={styles.webView}
+                        javaScriptEnabled={true}
+                        domStorageEnabled={true}
+                        startInLoadingState={true}
+                        scalesPageToFit={true}
+                        renderLoading={()=>{return <Loading />} }
+                        >
+                    </WebView>
                 </View>
                 <View style={styles.footer}>
                     <View style={styles.cell}><ButtonDefault onPress={this.goPurchase.bind(this)}>现在购买</ButtonDefault></View>
