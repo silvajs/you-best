@@ -11,12 +11,7 @@ import React, {
 } from 'react-native';
 import TabPage from './TabPage';
 
-var actions = [{
-    title: 'Close',
-    icon: require('../image/btn_close.png'),
-    show: 'always',
-    showWithText: true
-}];
+
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -27,6 +22,12 @@ class LoginPage extends React.Component {
     }
 
     render() {
+        var actions = [{
+            title: '',
+            icon: require('../image/btn_close.png'),
+            show: 'always',
+            showWithText: false
+        }];
 
         return (
             <View style={styles.container}>
@@ -35,7 +36,7 @@ class LoginPage extends React.Component {
                     actions={actions}
                     contentInsetEnd={100}
                     onActionSelected={this.onActionSelected.bind(this)} >
-                    <View style={styles.title}><Text style={{fontSize: 20}}>欢迎来到优可信</Text></View>
+                    <View style={styles.title}><Text style={{fontSize: 18}}>欢迎来到优可信</Text></View>
                 </ToolbarAndroid>
                 <View style={styles.form}>
                     <TextInput style={styles.input} placeholder='手机号' keyboardType='numeric'></TextInput>
@@ -78,7 +79,7 @@ var styles = StyleSheet.create({
     },
     toolbar: {
         backgroundColor: '#e9eaed',
-        height: 56,
+        height: 52,
         justifyContent: 'center'
     },
     title: {
